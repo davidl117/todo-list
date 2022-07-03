@@ -1,0 +1,59 @@
+  html{
+    background: url(list_pic.jpg) no-repeat center fixed;
+    background-size: cover;
+
+  }
+
+  *{
+    box-sizing: border-box;
+  }
+
+  header{
+    background-color: teal;
+    text-align: center;
+    padding: 10px;
+    margin: -16px;
+    font-size: 2rem;
+  }
+  header p{
+    font-size: 1.1rem;
+  }
+
+  button{
+    background-color: rgba(144,0,66,0.96);
+    display: inline-block;
+    border:  none;
+    padding: 25px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+
+  .button1:hover{
+    background-color: teal;
+  }
+
+  .button2:hover{
+    background-color: red;
+  }
+
+  .button3:hover{
+    background-color: purple;
+  }
+
+  .button4:hover{
+    background-color: salmon;
+  }
+
+ .trans:hover{
+    transition: 1s;
+  }
+
+  .flex-container{
+    display:flex;
+    justify-content: center;
+    justify-content: space-around;/*makes spaces before between and after*/
+
+  }
+  .centered{
+
+  }
