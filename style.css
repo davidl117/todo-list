@@ -15,17 +15,20 @@
     margin: -16px;
     font-size: 2rem;
   }
+
   header p{
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
 
   button{
-    background-color: rgba(144,0,66,0.96);
+    background-color: rgba(144,120,66,0.96);
     display: inline-block;
     border:  none;
-    padding: 25px;
+    padding: 55px 66px;
     cursor: pointer;
     border-radius: 12px;
+    margin: 50px 0 0 20px;
+    font-size: 1rem
   }
 
   .button1:hover{
@@ -51,8 +54,7 @@
   .flex-container{
     display:flex;
     justify-content: center;
-    justify-content: space-around;/*makes spaces before between and after*/
-
+    align-items: center;
   }
   .centered{
 
