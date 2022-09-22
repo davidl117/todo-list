@@ -7,17 +7,30 @@
 	<title>Todo List</title>
 	<link href="style.css" rel="stylesheet">
 </head>
-<header>
-	<h1>To do list</h1>
-	<p>Keeping track of today so tomorrow can be better</p>
-</header>
-<nav class="centered flex-container">
-	<button href="#but1" class="button1 trans">Todays List</button>
-	<button href="#but2" class="button2 trans">Tomorrows List</button>
-	<button href="#but3" class="button3 trans">Weekly List</button>
-	<button href="#but4" class="button4 trans">Monthly List</button>
-</nav>
 <body>
-	<script src="script.js"></script>
+	<header>
+		<h1>To do list</h1>
+		<p>Keeping track of today so tomorrow can be better</p>
+	</header>
+	    <section id="sideBar">	
+			<nav class="flex-container">
+				<button href="#but1" class="button1 trans">Todays List</button>
+				<button href="#but2" class="button2 trans">Tomorrows List</button>
+				<button href="#but3" class="button3 trans">Weekly List</button>
+				<button href="#but4" class="button4 trans">Monthly List</button>
+			</nav>
+	    </section>
+		<div class="input-bar">
+			<input id="textBar" type="text" placeholder=" Start tracking your day..."/>
+			<button id="submit">Submit</button>
+		</div>
+		<!--container for appended p elements-->
+		<div class="pText-container">
+			<p id="pText">
+			<button class="noShow" id="edit" value="button">Edit</button>
+			<button class="noShow" id="delete" value="button">Delete</button>
+			</p>
+		</div>
+		<script src="script.js"></script>
 </body>
 </html>
