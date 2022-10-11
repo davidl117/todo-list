@@ -34,8 +34,7 @@ submit.addEventListener('click', function (){
 checkBox.addEventListener('click',() => {
     if (checkBox.checked == true) {
       para.style.textDecoration = 'line-through';
-    }
-  else {
+    }else {
      para.style.textDecoration = 'none';
   }
 });
