@@ -29,7 +29,7 @@ submit.addEventListener('click', function (){
   const saveButton = document.createElement('button');
   saveButton.innerText = 'Save';
 
-  //session storage setItem
+  //local storage setItem
   const storeToDo = textBar.value; 
   localStorage.setItem('toDo', JSON.stringify(storeToDo));
 
@@ -47,13 +47,13 @@ editButton.addEventListener('click', () => {
     pText.appendChild(saveButton);
     saveButton.classList.add('buttonStyle');
   saveButton.addEventListener('click', () => {
-     para.contentEditable = false;  
-     saveButton.remove(saveButton);
-     localStorage.setItem("toDo", JSON.stringify(storeToDo));
+    para.contentEditable = false;  
+    saveButton.remove(saveButton);
     });
 })
 
-  //session storage getItem
+
+  //local storage getItem
   //Might need to make into an array to store the values
   //Empty array?
   //unordered list?
