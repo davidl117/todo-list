@@ -9,13 +9,14 @@ submit.addEventListener('click', function (){
         return;
     }
   
+  //declaring values
+  //para = the paragraph that is created for the list
   const para = document.createElement("p");
   para.innerText = textBar.value;
 
   const checkBox = document.createElement('input');
   checkBox.classList.add("checkbox");
   checkBox.setAttribute("type","checkbox");
-
 
   const editButton = document.createElement('button');
   editButton.classList.add('buttonStyle');
@@ -27,30 +28,40 @@ submit.addEventListener('click', function (){
 
   const saveButton = document.createElement('button');
   saveButton.innerText = 'Save';
-      
+
+  //session storage setItem
+  const storeToDo = textBar.value; 
+  localStorage.setItem('toDo', JSON.stringify(storeToDo));
+
   //values that are displayed on submit click
   pText.appendChild(para);
   pText.appendChild(editButton);
   pText.appendChild(delButton);
   pText.appendChild(checkBox);
   textBar.value = "";
-  
-  //session storage/local storage
-  const storeToDo = textBar.value; 
-  sessionStorage.setItem('toDo', JSON.stringify(storeToDo));
-  JSON.parse(sessionStorage.getItem('toDo'));  
 
-//edit current list item
+//edit current list item and save with local storage
 editButton.addEventListener('click', () => {
     para.contentEditable = true;
     para.focus();
     pText.appendChild(saveButton);
-
+    saveButton.classList.add('buttonStyle');
   saveButton.addEventListener('click', () => {
      para.contentEditable = false;  
      saveButton.remove(saveButton);
-    })
+     localStorage.setItem("toDo", JSON.stringify(storeToDo));
+    });
 })
+
+  //session storage getItem
+  //Might need to make into an array to store the values
+  //Empty array?
+  //unordered list?
+  //need to be able to remove items when deleted by  user
+  //edited items should overide current values
+  //list items need to remain after refresh
+
+  JSON.parse(localStorage.getItem('toDo'));  
 
 
 //add/remove line through text when box is clicked
