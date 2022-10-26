@@ -20,8 +20,12 @@
     font-size: 1.3rem;
   }
 
+  ul{
+    list-style: none;
+  }
+
   /*Button styling*/
-   .button1, .button2, .button3, .button4 {
+ .button1, .button2, .button3, .button4 {
     background-color: rgba(144,120,66,0.96);
     display: inline-block;
     border:  none;
@@ -30,12 +34,10 @@
     border-radius: 12px;
     margin: 20px 0 0 10px;
     font-size: 1rem;
-  }
-
-  .button1{
     position: relative;/*Was under inputbar element*/
     z-index: 1;
   }
+
   .button1:hover{
     background-color: teal;
   }
@@ -54,7 +56,7 @@
 
  .trans:hover{
     transition: 1s;
-  }
+  }*/
   /*End button styling*/
 
   /*side bar styling*/
@@ -115,30 +117,36 @@
     border-style: none;
     font-weight: 700;
     background-image: linear-gradient(to-right,rgba(55, 240, 17, 0.267), rgba(10, 96, 146, 0.938));
-    -webkit-background-clip: text;
-    webkit-text-fill-color:
   }
 
-  /*hides edit and delete button*/
-  .noShow {
+  /*styles edit and delete button*/
+  .buttonStyle {
     border-style: none;
     background: none;
     cursor: pointer;    
     position: relative;
-    right: 0px;
+    left: 700px;
+    top: -33px;
+  }
+
+  .checkbox {
+    position: relative;
+    top: -36px;
+    left: -105px; 
   }
 
   /*Responsivness*/
   @media (max-width: 600px) {
     .flex-container{
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       flex-wrap: wrap;
     }     
-
-    #textBar {
+/* 
+    #submit, #textBar {
+      display: none;
       
-    }
+    } */
   }
 
   @media (max-width: 962px) {
