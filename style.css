@@ -1,159 +1,30 @@
-  html {
-    font-family: 'Lucida Grande', sans-serif;
-  }
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
-  * {
-    box-sizing: border-box;
-  }
+header{
+  text-align: center;
+  margin: 2rem;
+}
 
-  header{
-    background-color: teal;
-    text-align: center;
-    padding: 10px;
-    margin: -16px;
-    font-size: 2rem;
-    font-weight: 700;
-    min-width: 400px;
-  }
+header h1{
+  margin-bottom: 1.5rem;
+  font-size: 3rem;
+}
 
-  header p{
-    font-size: 1.3rem;
-  }
+header p{
+  font-size: 1.5rem;
+}
 
-  ul{
-    list-style: none;
-  }
+.input-bar{
+  display: flex;
+  justify-content: center;
+}
 
-  /*Button styling*/
- .button1, .button2, .button3, .button4 {
-    background-color: rgba(144,120,66,0.96);
-    display: inline-block;
-    border:  none;
-    padding: 15px;
-    cursor: pointer;
-    border-radius: 12px;
-    margin: 20px 0 0 10px;
-    font-size: 1rem;
-    position: relative;/*Was under inputbar element*/
-    z-index: 1;
-  }
+.pText-container, p{
+  text-align: center;
+  margin-top: 1rem;
+}
 
-  .button1:hover{
-    background-color: teal;
-  }
-
-  .button2:hover{
-    background-color: red;
-  }
-
-  .button3:hover{
-    background-color: purple;
-  }
-
-  .button4:hover{
-    background-color: salmon;
-  }
-
- .trans:hover{
-    transition: 1s;
-  }*/
-  /*End button styling*/
-
-  /*side bar styling*/
-  #sideBar {
-    width: 145px;
-    
-  }
-
-  .flex-container{
-    display:flex;
-    flex-direction: column;
-  }
-
-  /*container*/
-  .input-bar{
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: -297px;
-    margin: 25px 0 0  0;
-  }
-
-  #textBar{
-    border-radius: 12px;
-    border-style: none;
-    background-color: rgba(31, 43, 37, 0.314);
-    min-width: 400px;
-    width: 50%;
-    height: 40px;
-    font-size: 1.2rem;
-  }
-  /*styles the appended "p" elements*/
-  .pText-container {
-    position: relative;
-    bottom: 207px;
-    justify-content: center;
-    display: flex;
-    right: 38px;
-  }
-
-  #pText{    
-    text-align: left;
-    width: 832px;
-    margin: 5px inherit;
-  }
-  
-  #pText p{
-    background-color: rgba(63, 97, 112, 0.541);
-    border-radius: 10px;
-    padding: 13px;
-    margin: 5px auto;
-  }
-
-  /*End p style*/
-  #submit{
-    background-color: rgba(255,255,255,0.1);
-    margin: -3px;
-    border-style: none;
-    font-weight: 700;
-    background-image: linear-gradient(to-right,rgba(55, 240, 17, 0.267), rgba(10, 96, 146, 0.938));
-  }
-
-  /*styles edit and delete button*/
-  .buttonStyle {
-    border-style: none;
-    background: none;
-    cursor: pointer;    
-    position: relative;
-    left: 700px;
-    top: -33px;
-  }
-
-  .checkbox {
-    position: relative;
-    top: -36px;
-    left: -105px; 
-  }
-
-  /*Responsivness*/
-  @media (max-width: 600px) {
-    .flex-container{
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-    }     
-/* 
-    #submit, #textBar {
-      display: none;
-      
-    } */
-  }
-
-  @media (max-width: 962px) {
-    .flex-container{
-      display: flex;
-      flex-wrap: wrap;
-    }
-  }
-
-  
