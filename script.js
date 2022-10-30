@@ -45,6 +45,7 @@ editButton.addEventListener('click', () => {
     para.contentEditable = true;
     para.focus();
 });
+//content uneditable on click away
 
 
   //local storage getItem
