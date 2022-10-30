@@ -1,56 +1,50 @@
- const submit = document.getElementById('submit');
+ const submit =  document.getElementById('submit');
  const textBar = document.getElementById('textBar');
  const pText = document.getElementById('pText');
+ const textContainer = document.getElementsByClassName('pText-container');
+
 
 submit.addEventListener('click', function (){
-
     if (textBar.value === ""){
         alert("Put something on the list!"); 
         return;
     }
   
-  //declaring values
-  //para = the paragraph that is created for the list
+  //creating elements
   const para = document.createElement("p");
-  para.innerText = textBar.value;
-
-  const checkBox = document.createElement('input');
-  checkBox.classList.add("checkbox");
-  checkBox.setAttribute("type","checkbox");
-
-  const editButton = document.createElement('button');
-  editButton.classList.add('buttonStyle');
-  editButton.innerText = 'Edit';
-
-  const delButton = document.createElement('button');
-  delButton.classList.add('buttonStyle');
-  delButton.innerText = 'Delete';
-
   const saveButton = document.createElement('button');
-  saveButton.innerText = 'Save';
+  const checkBox = document.createElement('input');
+  const editButton = document.createElement('button');
+  const delButton = document.createElement('button');
+
+  checkBox.type = 'checkbox';
+    //styles
+  checkBox.classList.add('checkbox');
+  editButton.classList.add('edit');
+  delButton.classList.add('delete');
+  para.classList.add('pText-container')
+
+  para.innerText = textBar.value;
+  saveButton.innerText = "Save";
+  editButton.innerText = "Edit";
+  delButton.innerText = "Delete";
 
   //local storage setItem
   const storeToDo = textBar.value; 
   localStorage.setItem('toDo', JSON.stringify(storeToDo));
 
   //values that are displayed on submit click
+  pText.appendChild(checkBox);
   pText.appendChild(para);
   pText.appendChild(editButton);
   pText.appendChild(delButton);
-  pText.appendChild(checkBox);
   textBar.value = "";
 
 //edit current list item and save with local storage
 editButton.addEventListener('click', () => {
     para.contentEditable = true;
     para.focus();
-    pText.appendChild(saveButton);
-    saveButton.classList.add('buttonStyle');
-  saveButton.addEventListener('click', () => {
-    para.contentEditable = false;  
-    saveButton.remove(saveButton);
-    });
-})
+});
 
 
   //local storage getItem
@@ -82,6 +76,4 @@ checkBox.addEventListener('click',() => {
     pText.removeChild(checkBox);
     pText.removeChild(saveButton);    
   });
-});
-
-
+ });

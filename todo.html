@@ -13,13 +13,18 @@
 		<p>Keeping track of today so tomorrow can be better</p>
 	</header>
 	<section>
-		<div class="input-bar">
-			<input id="textBar" type="text" placeholder=" Start tracking your day..."/>
-			<button id="submit">Submit</button>
-		</div>
-		<!--container for appended p elements-->
+		<form class="input-bar">
+			<input 
+			id="textBar" 
+			type="text" 
+			placeholder=" Start tracking your day..."/>
+			<input 
+			type="submit" 
+			id="submit" 
+			value="Add Task"/>
+		</form>
 		<div class="pText-container">
-			<p id="pText"><input type="checkbox"/>This is the test <span><button>Edit</button><button>Delete</button></span></p>
+		  <p id="pText"></p>
 		</div>
 	</section>
 		<script src="script.js"></script>
