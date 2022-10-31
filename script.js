@@ -1,39 +1,50 @@
  const submit =  document.getElementById('submit');
  const textBar = document.getElementById('textBar');
  const pText = document.getElementById('pText');
- const textContainer = document.getElementsByClassName('pText-container');
+ const textContainer = document.querySelector('.pText-container');
 
+// window.addEventListener('load', () => {
+//   pText = JSON.parse(localStorage.getItem('toDo')) || [];
+// })
+submit.addEventListener('click', (e) => {
+  e.preventDefault(); //prevents "form" from submitting 
 
-submit.addEventListener('click', function (){
     if (textBar.value === ""){
         alert("Put something on the list!"); 
         return;
     }
   
   //creating elements
-  const para = document.createElement("p");
-  const saveButton = document.createElement('button');
+  // const newDiv = document.createElement('div');
+  // newDiv.classList.add('.pText');
+
+  const para = document.createElement("input");
+  para.type = 'text';
+  para.value = textBar.value;
+  para.setAttribute('readonly', true);
+  para.classList.add('pText');
+
   const checkBox = document.createElement('input');
-  const editButton = document.createElement('button');
-  const delButton = document.createElement('button');
-
   checkBox.type = 'checkbox';
-    //styles
-  checkBox.classList.add('checkbox');
-  editButton.classList.add('edit');
-  delButton.classList.add('delete');
-  para.classList.add('pText-container')
 
-  para.innerText = textBar.value;
-  saveButton.innerText = "Save";
+  const editButton = document.createElement('button');
+  editButton.classList.add('edit');
   editButton.innerText = "Edit";
+
+  const delButton = document.createElement('button');
+  delButton.classList.add('delete');
   delButton.innerText = "Delete";
 
   //local storage setItem
-  const storeToDo = textBar.value; 
-  localStorage.setItem('toDo', JSON.stringify(storeToDo));
+  // const storeToDo = textBar.value; 
+  // localStorage.setItem('toDo', JSON.stringify(storeToDo));
 
   //values that are displayed on submit click
+  // newDiv.appendChild(editButton);
+  // newDiv.appendChild(delButton);
+  // newDiv.appendChild(para);
+  
+  // pText.appendChild(newDiv);
   pText.appendChild(checkBox);
   pText.appendChild(para);
   pText.appendChild(editButton);

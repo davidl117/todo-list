@@ -24,41 +24,32 @@ header p{
   min-width: 100px;
 }
 
+input, button {
+  border: none;
+  cursor: pointer;
+} 
+
+
 /* ToDo styling */
-.pText-container #pText{
-  text-align: center;
-  margin-top: 1rem;
+.pText-container, #pText {
+ display: flex;
+ justify-content: space-between;
+ background-color: aqua;
+ margin: 0 auto;
+ width: 34%;
 }
 
-#pText p{
-  margin: auto;
+.pText {
   background-color: aqua;
-  width: 35%;
-  margin-top: 0;
-  height: 35px;
-  display: flex;
-  align-items: center;
 }
 
 .edit{
   padding: 7px;
   border: none;
-  position: relative;
-  left: 150px;
-  bottom: 32px;
 }
 
 .delete{
   padding: 7px;
   border: none;
-  position: relative;
-  left: 165px;
-  bottom: 32px;
-}
-
-.checkbox{
-  position: relative;
-  right: 295px;
-  top: 44px;
 }
 
