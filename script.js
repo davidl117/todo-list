@@ -15,8 +15,8 @@ submit.addEventListener('click', (e) => {
     }
   
   //creating elements
-  // const newDiv = document.createElement('div');
-  // newDiv.classList.add('.pText');
+  const newDiv = document.createElement('div');
+  newDiv.classList.add('pText-container');
 
   const para = document.createElement("input");
   para.type = 'text';
@@ -35,6 +35,8 @@ submit.addEventListener('click', (e) => {
   delButton.classList.add('delete');
   delButton.innerText = "Delete";
 
+  textBar.value = "";
+
   //local storage setItem
   // const storeToDo = textBar.value; 
   // localStorage.setItem('toDo', JSON.stringify(storeToDo));
@@ -42,19 +44,20 @@ submit.addEventListener('click', (e) => {
   //values that are displayed on submit click
   // newDiv.appendChild(editButton);
   // newDiv.appendChild(delButton);
-  // newDiv.appendChild(para);
-  
-  // pText.appendChild(newDiv);
+  newDiv.appendChild(para);
+  pText.appendChild(newDiv);
   pText.appendChild(checkBox);
   pText.appendChild(para);
   pText.appendChild(editButton);
   pText.appendChild(delButton);
-  textBar.value = "";
 
 //edit current list item and save with local storage
 editButton.addEventListener('click', () => {
-    para.contentEditable = true;
+    para.removeAttribute('readonly');
     para.focus();
+    para.addEventListener('click', () => {
+      para.setAttribute('readonly', true);
+    })
 });
 //content uneditable on click away
 

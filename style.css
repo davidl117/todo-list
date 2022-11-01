@@ -31,25 +31,39 @@ input, button {
 
 
 /* ToDo styling */
-.pText-container, #pText {
- display: flex;
- justify-content: space-between;
- background-color: aqua;
- margin: 0 auto;
- width: 34%;
+.pText-container {
+display: flex;
+justify-content: center;
+ /* background-color: rgb(8, 87, 87);
+ /* margin: 0 auto; */
+ /* width: 34%; */
+ margin-top: 1rem;
+ /* display: block; */
 }
 
-.pText {
+.pText, .edit, .delete {
   background-color: aqua;
+  height: 2rem;
+  /* display: inline-block; */
+}
+
+
+.section{
+  display: flex;
+  justify-content: center; 
 }
 
 .edit{
   padding: 7px;
   border: none;
+  background-color: black;
+  color: white;
 }
 
 .delete{
   padding: 7px;
   border: none;
+  background-color: black;
+  color: white;
 }
 
