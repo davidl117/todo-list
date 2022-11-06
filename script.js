@@ -8,8 +8,6 @@
 window.addEventListener('load', () => {
   JSON.parse(localStorage.getItem('toDo')) || [];
   storeTodo = JSON.parse(localStorage.getItem('toDo'));
-  return Display();
-})
 
 //prevents "form" from submitting 
 submit.addEventListener('click', (e) => {
@@ -21,8 +19,10 @@ submit.addEventListener('click', () => {
   
     if (textBar.value === ""){
         alert("Put something on the list!"); 
+
         return;
     }   
+
 
   //creating elements
   const newDiv = document.createElement('div');
@@ -61,6 +61,7 @@ submit.addEventListener('click', () => {
   storeTodo.push(para.value);
   localStorage.setItem('toDo', JSON.stringify(storeTodo));
 
+
 //content uneditable on click away
 editButton.addEventListener('click', () => {
     para.removeAttribute('readonly');
@@ -68,6 +69,7 @@ editButton.addEventListener('click', () => {
     para.addEventListener('blur', () => {
       para.setAttribute('readonly', true);
       localStorage.setItem('toDo', JSON.stringify(storeTodo));
+
     })
 });
 

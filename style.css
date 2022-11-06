@@ -1,61 +1,63 @@
-  html{
-    background: url(list_pic.jpg) no-repeat center fixed;
-    background-size: cover;
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
-  }
+header{
+  text-align: center;
+  margin: 2rem;
+}
 
-  *{
-    box-sizing: border-box;
-  }
+header h1{
+  margin-bottom: 1.5rem;
+  font-size: 3rem;
+}
 
-  header{
-    background-color: teal;
-    text-align: center;
-    padding: 10px;
-    margin: -16px;
-    font-size: 2rem;
-  }
+header p{
+  font-size: 1.5rem;
+}
 
-  header p{
-    font-size: 1.3rem;
-  }
+.input-bar{
+  display: flex;
+  justify-content: center;
+  min-width: 100px;
+}
 
-  button{
-    background-color: rgba(144,120,66,0.96);
-    display: inline-block;
-    border:  none;
-    padding: 55px 66px;
-    cursor: pointer;
-    border-radius: 12px;
-    margin: 50px 0 0 20px;
-    font-size: 1rem
-  }
+input, button {
+  border: none;
+  cursor: pointer;
+} 
 
-  .button1:hover{
-    background-color: teal;
-  }
 
-  .button2:hover{
-    background-color: red;
-  }
+/* ToDo styling */
+.pText-container {
+display: flex;
+justify-content: center;
+ margin-top: 1rem;
+}
 
-  .button3:hover{
-    background-color: purple;
-  }
+.pText, .edit, .delete {
+  background-color: aqua;
+  height: 2rem;
+}
 
-  .button4:hover{
-    background-color: salmon;
-  }
+.section{
+  display: flex;
+  justify-content: center; 
+}
 
- .trans:hover{
-    transition: 1s;
-  }
+.edit{
+  padding: 7px;
+  border: none;
+  background-color: black;
+  color: white;
+}
 
-  .flex-container{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .centered{
+.delete{
+  padding: 7px;
+  border: none;
+  background-color: black;
+  color: white;
+}
 
-  }

@@ -7,16 +7,46 @@
 	<title>Todo List</title>
 	<link href="style.css" rel="stylesheet">
 </head>
-<header>
-	<h1>To do list</h1>
-	<p>Keeping track of today so tomorrow can be better</p>
-</header>
-<nav class="centered flex-container">
-	<button href="#but1" class="button1 trans">Todays List</button>
-	<button href="#but2" class="button2 trans">Tomorrows List</button>
-	<button href="#but3" class="button3 trans">Weekly List</button>
-	<button href="#but4" class="button4 trans">Monthly List</button>
-</nav>
 <body>
+	<header>
+		<h1>To Do List</h1>
+		<p>Keeping track of today so tomorrow can be better</p>
+	</header>
+	<section>
+		<form class="input-bar">
+			<input 
+			id="textBar" 
+			type="text" 
+			placeholder=" Start tracking your day..."/>
+			<input 
+			type="submit" 
+			id="submit" 
+			value="Add Task"/>
+		</form>
+		<section class="section">
+		  <div id="pText"></div>
+	    </section>
+		<!-- <div class="pText-container">
+		  <input type="checkbox"/>
+		  <input 
+		  id="pText"
+		  type="text"
+		  readonly
+		   />
+			<button class="edit">Edit</button>
+			<button class="delete">Delete</button>			
+		</div> 
+		<div class="pText-container">
+		  <input type="checkbox"/>
+		  <input 
+		  id="pText"
+		  type="text"
+		  readonly
+		   />
+			<button class="edit">Edit</button>
+			<button class="delete">Delete</button>			
+		</div> -->
+	</section>
+		<script src="script.js"></script>
 </body>
 </html>
