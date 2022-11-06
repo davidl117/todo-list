@@ -6,10 +6,8 @@
  //displaying stored data on load
  var storeTodo = [];
 window.addEventListener('load', () => {
-  if (JSON.parse(localStorage.getItem('toDo')) != null){
-    storeTodo = JSON.parse(localStorage.getItem('toDo'));
-    console.log(storeTodo);
-  }
+  JSON.parse(localStorage.getItem('toDo')) || [];
+  storeTodo = JSON.parse(localStorage.getItem('toDo'));
   return Display();
 })
 
@@ -23,7 +21,7 @@ submit.addEventListener('click', () => {
   
     if (textBar.value === ""){
         alert("Put something on the list!"); 
-        return Display();
+        return;
     }    
 
   //creating elements
@@ -60,9 +58,8 @@ submit.addEventListener('click', () => {
   pText.appendChild(delButton);
 
   //local storage setItem
-  storeTodo.push()
-  console.log(localStorage.setItem('toDo', JSON.stringify()));
-  // storeTodo.push(para);
+  storeTodo.push(para.value);
+  localStorage.setItem('toDo', JSON.stringify(storeTodo));
 
 //content uneditable on click away
 editButton.addEventListener('click', () => {
@@ -70,7 +67,7 @@ editButton.addEventListener('click', () => {
     para.focus();
     para.addEventListener('blur', () => {
       para.setAttribute('readonly', true);
-      localStorage.setItem('toDo', JSON.stringify(para.value));
+      localStorage.setItem('toDo', JSON.stringify(storeTodo));
     })
 });
 
