@@ -3,17 +3,29 @@
  const pText = document.getElementById('pText');
  const textContainer = document.querySelector('.pText-container');
 
-// window.addEventListener('load', () => {
-//   pText = JSON.parse(localStorage.getItem('toDo')) || [];
-// })
-submit.addEventListener('click', (e) => {
-  e.preventDefault(); //prevents "form" from submitting 
+ //displaying stored data on load
+ var storeTodo = [];
+window.addEventListener('load', () => {
+  if (JSON.parse(localStorage.getItem('toDo')) != null){
+    storeTodo = JSON.parse(localStorage.getItem('toDo'));
+    console.log(storeTodo);
+  }
+  return Display();
+})
 
+//prevents "form" from submitting 
+submit.addEventListener('click', (e) => {
+  e.preventDefault(); 
+})
+
+function Display() {
+submit.addEventListener('click', () => {
+  
     if (textBar.value === ""){
         alert("Put something on the list!"); 
-        return;
-    }
-  
+        return Display();
+    }    
+
   //creating elements
   const newDiv = document.createElement('div');
   newDiv.classList.add('pText-container');
@@ -37,10 +49,6 @@ submit.addEventListener('click', (e) => {
 
   textBar.value = "";
 
-  //local storage setItem
-  // const storeToDo = textBar.value; 
-  // localStorage.setItem('toDo', JSON.stringify(storeToDo));
-
   //values that are displayed on submit click
   // newDiv.appendChild(editButton);
   // newDiv.appendChild(delButton);
@@ -51,26 +59,28 @@ submit.addEventListener('click', (e) => {
   pText.appendChild(editButton);
   pText.appendChild(delButton);
 
-//edit current list item and save with local storage
+  //local storage setItem
+  storeTodo.push()
+  console.log(localStorage.setItem('toDo', JSON.stringify()));
+  // storeTodo.push(para);
+
+//content uneditable on click away
 editButton.addEventListener('click', () => {
     para.removeAttribute('readonly');
     para.focus();
-    para.addEventListener('click', () => {
+    para.addEventListener('blur', () => {
       para.setAttribute('readonly', true);
+      localStorage.setItem('toDo', JSON.stringify(para.value));
     })
 });
-//content uneditable on click away
 
 
   //local storage getItem
   //Might need to make into an array to store the values
   //Empty array?
-  //unordered list?
   //need to be able to remove items when deleted by  user
   //edited items should overide current values
   //list items need to remain after refresh
-
-  JSON.parse(localStorage.getItem('toDo'));  
 
 
 //add/remove line through text when box is clicked
@@ -82,13 +92,18 @@ checkBox.addEventListener('click',() => {
   }
 })
 
-
 //removes list element when delete button clicked
   delButton.addEventListener('click', () =>{
     pText.removeChild(para);
     pText.removeChild(delButton);
     pText.removeChild(editButton);
     pText.removeChild(checkBox);
-    pText.removeChild(saveButton);    
+    pText.removeChild(newDiv); 
+    // newDiv.removeChild(editButton);
+    // newDiv.removeChild(delButton);
+    // localStorage.removeItem('toDo');
+    //need to make it a target event listener?
+  
   });
  });
+};

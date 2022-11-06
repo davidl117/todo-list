@@ -34,19 +34,13 @@ input, button {
 .pText-container {
 display: flex;
 justify-content: center;
- /* background-color: rgb(8, 87, 87);
- /* margin: 0 auto; */
- /* width: 34%; */
  margin-top: 1rem;
- /* display: block; */
 }
 
 .pText, .edit, .delete {
   background-color: aqua;
   height: 2rem;
-  /* display: inline-block; */
 }
-
 
 .section{
   display: flex;
