@@ -8,11 +8,12 @@
 window.addEventListener('load', () => {
   JSON.parse(localStorage.getItem('toDo')) || [];
   storeTodo = JSON.parse(localStorage.getItem('toDo'));
+});
 
 //prevents "form" from submitting 
 submit.addEventListener('click', (e) => {
   e.preventDefault(); 
-})
+});
 
 function Display() {
 submit.addEventListener('click', () => {
@@ -73,10 +74,6 @@ editButton.addEventListener('click', () => {
     })
 });
 
-
-  //local storage getItem
-  //Might need to make into an array to store the values
-  //Empty array?
   //need to be able to remove items when deleted by  user
   //edited items should overide current values
   //list items need to remain after refresh
@@ -101,7 +98,6 @@ checkBox.addEventListener('click',() => {
     // newDiv.removeChild(editButton);
     // newDiv.removeChild(delButton);
     // localStorage.removeItem('toDo');
-    //need to make it a target event listener?
   
   });
  });
