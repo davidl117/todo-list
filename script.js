@@ -4,26 +4,52 @@
  const textContainer = document.querySelector('.pText-container');
 
  //displaying stored data on load
- var storeTodo = [];
+//  var storeTodo = [];
 window.addEventListener('load', () => {
-  JSON.parse(localStorage.getItem('toDo')) || [];
-  storeTodo = JSON.parse(localStorage.getItem('toDo'));
-});
+  tasks = JSON.parse(localStorage.getItem('toDo'));
+  if ( tasks === null){
+    storeTodo = [];
+  }else {
+    storeTodo = tasks;
+  }
+  localStorage.setItem('toDo', JSON.stringify(storeTodo));
+  storeTodo.push(textBar.value);
+   JSON.parse(localStorage.getItem('toDo'));
+  console.log(storeTodo);
+  Display();
+})
+
 
 //prevents "form" from submitting 
 submit.addEventListener('click', (e) => {
   e.preventDefault(); 
 });
 
-function Display() {
-submit.addEventListener('click', () => {
-  
+submit.addEventListener('click', () => { 
     if (textBar.value === ""){
         alert("Put something on the list!"); 
-
         return;
     }   
 
+if (JSON.parse(localStorage.getItem('toDo')) === null) {
+  storeTodo = [];
+}else {
+  storeTodo = JSON.parse(localStorage.getItem('toDo'))
+}
+//local storage setItem
+storeTodo.push(textBar.value);
+localStorage.setItem('toDo', JSON.stringify(storeTodo));
+JSON.parse(localStorage.getItem(storeTodo));
+Display();
+});
+
+ function Display() {
+  let tasks = JSON.parse(localStorage.getItem('toDo')); 
+  if (tasks === null) {
+    storeTodo = [];
+  }else {
+    storeTodo = tasks;
+  }
 
   //creating elements
   const newDiv = document.createElement('div');
@@ -58,10 +84,7 @@ submit.addEventListener('click', () => {
   pText.appendChild(editButton);
   pText.appendChild(delButton);
 
-  //local storage setItem
-  storeTodo.push(para.value);
-  localStorage.setItem('toDo', JSON.stringify(storeTodo));
-
+//  localStorage.setItem('toDo', JSON.stringify(storeTodo));
 
 //content uneditable on click away
 editButton.addEventListener('click', () => {
@@ -69,14 +92,10 @@ editButton.addEventListener('click', () => {
     para.focus();
     para.addEventListener('blur', () => {
       para.setAttribute('readonly', true);
-      localStorage.setItem('toDo', JSON.stringify(storeTodo));
+      // localStorage.setItem('toDo', JSON.stringify(storeTodo));
 
     })
 });
-
-  //need to be able to remove items when deleted by  user
-  //edited items should overide current values
-  //list items need to remain after refresh
 
 
 //add/remove line through text when box is clicked
@@ -97,8 +116,7 @@ checkBox.addEventListener('click',() => {
     pText.removeChild(newDiv); 
     // newDiv.removeChild(editButton);
     // newDiv.removeChild(delButton);
-    // localStorage.removeItem('toDo');
+    // localStorage.removeItem('toDo');//might need parameter of e
   
-  });
- });
-};
+  }); 
+ }
