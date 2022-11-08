@@ -2,23 +2,33 @@
  const textBar = document.getElementById('textBar');
  const pText = document.getElementById('pText');
  const textContainer = document.querySelector('.pText-container');
-
+ var para = textBar.value;
  //displaying stored data on load
-//  var storeTodo = [];
+ var storeTodo = [];
 window.addEventListener('load', () => {
   tasks = JSON.parse(localStorage.getItem('toDo'));
   if ( tasks === null){
     storeTodo = [];
   }else {
     storeTodo = tasks;
-  }
-  localStorage.setItem('toDo', JSON.stringify(storeTodo));
-  storeTodo.push(textBar.value);
-   JSON.parse(localStorage.getItem('toDo'));
-  console.log(storeTodo);
-  Display();
-})
+    storeTodo.forEach(task => {
+      for (let i = 0; i < storeTodo.length; i++){
+        task[i];
+      }
+      Display();
+    })
+    }
+  })
+  // localStorage.setItem('toDo', JSON.stringify(storeTodo));
+  // storeTodo.push(textBar.value);
+  // JSON.parse(localStorage.getItem('toDo'));
 
+//  => {
+//   for (let i = 0; i < storeTodo.length; i++){
+    
+//     Display();
+//   }
+// })
 
 //prevents "form" from submitting 
 submit.addEventListener('click', (e) => {
@@ -30,26 +40,15 @@ submit.addEventListener('click', () => {
         alert("Put something on the list!"); 
         return;
     }   
-
-if (JSON.parse(localStorage.getItem('toDo')) === null) {
-  storeTodo = [];
-}else {
-  storeTodo = JSON.parse(localStorage.getItem('toDo'))
-}
 //local storage setItem
 storeTodo.push(textBar.value);
 localStorage.setItem('toDo', JSON.stringify(storeTodo));
-JSON.parse(localStorage.getItem(storeTodo));
 Display();
 });
 
+
  function Display() {
-  let tasks = JSON.parse(localStorage.getItem('toDo')); 
-  if (tasks === null) {
-    storeTodo = [];
-  }else {
-    storeTodo = tasks;
-  }
+ 
 
   //creating elements
   const newDiv = document.createElement('div');
@@ -84,7 +83,13 @@ Display();
   pText.appendChild(editButton);
   pText.appendChild(delButton);
 
-//  localStorage.setItem('toDo', JSON.stringify(storeTodo));
+  localStorage.setItem('toDo', JSON.stringify(storeTodo));
+  // if (storeTodo !== null) {
+    storeTodo.forEach(task => {
+      para.value = task
+      JSON.parse(localStorage.getItem('toDo'));
+    }) 
+  // }
 
 //content uneditable on click away
 editButton.addEventListener('click', () => {
@@ -95,7 +100,7 @@ editButton.addEventListener('click', () => {
       // localStorage.setItem('toDo', JSON.stringify(storeTodo));
 
     })
-});
+})
 
 
 //add/remove line through text when box is clicked
@@ -118,5 +123,5 @@ checkBox.addEventListener('click',() => {
     // newDiv.removeChild(delButton);
     // localStorage.removeItem('toDo');//might need parameter of e
   
-  }); 
+  }) 
  }
