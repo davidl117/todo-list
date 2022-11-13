@@ -6,7 +6,7 @@
  //displaying stored data on load
 let storeTodo = [];
 window.addEventListener('load', () => {
-  tasks = JSON.parse(localStorage.getItem('toDo'));
+  tasks = JSON.parse(localStorage.getItem('toDo')) || [];
   if ( tasks === null){
     storeTodo = [];
   }else {
@@ -68,9 +68,11 @@ Display();
   pText.appendChild(delButton);
 
   for (let i = 0; i < storeTodo.length; i++){
-    task[i] = JSON.parse(localStorage.getItem('toDo')); 
+    if ( task !== undefined){
+    task[i] = JSON.parse(localStorage.getItem('toDo')) || []; 
     para.value = task;
   }
+}
 
     //content uneditable on click away
 editButton.addEventListener('click', () => {
@@ -78,7 +80,9 @@ editButton.addEventListener('click', () => {
     para.focus();
     para.addEventListener('blur', () => {
       para.setAttribute('readonly', true);
-
+            JSON.parse(localStorage.getItem('toDo'));
+            storeTodo.splice(task, task, para.value);
+            localStorage.setItem('toDo', JSON.stringify(storeTodo));
     })
 })
 
@@ -101,7 +105,7 @@ checkBox.addEventListener('click',() => {
     pText.removeChild(newDiv); 
     // newDiv.removeChild(editButton);
     // newDiv.removeChild(delButton);
-    // localStorage.removeItem('toDo');//might need parameter of e
-  
+    localStorage.removeItem("toDo");//might need parameter of e
+    
   })
 } 
