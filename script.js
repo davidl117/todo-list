@@ -4,14 +4,14 @@
  const textContainer = document.querySelector('.pText-container');
 
  //displaying stored data on load
-let storeTodo = [];
+let storeTodoArr = [];
 window.addEventListener('load', () => {
   tasks = JSON.parse(localStorage.getItem('toDo')) || [];
   if ( tasks === null){
-    storeTodo = [];
+    storeTodoArr = [];
   }else {
-    storeTodo = tasks;
-    storeTodo.forEach(Display);
+    storeTodoArr = tasks;
+    storeTodoArr.forEach(Display);
     }
   })
 
@@ -24,16 +24,15 @@ submit.addEventListener('click', () => {
     if (textBar.value === ""){
         alert("Put something on the list!"); 
         return;
-    }   
+    }
 
 //local storage setItem
-storeTodo.push(textBar.value);
-localStorage.setItem('toDo', JSON.stringify(storeTodo));
+storeTodoArr.push(textBar.value);
+localStorage.setItem('toDo', JSON.stringify(storeTodoArr));
 Display();
 });
 
- function Display(task) {
-
+ function Display(task, i) {
   //creating elements
   const newDiv = document.createElement('div');
     newDiv.classList.add('pText-container');
@@ -56,6 +55,7 @@ Display();
     delButton.innerText = "Delete";
 
   textBar.value = "";
+  
 
   //values that are displayed on submit click
   // newDiv.appendChild(editButton);
@@ -67,34 +67,42 @@ Display();
   pText.appendChild(editButton);
   pText.appendChild(delButton);
 
-  for (let i = 0; i < storeTodo.length; i++){
+
+  localStorage.setItem('toDo', JSON.stringify(storeTodoArr));/////////
+
+  for (let i = 0; i < storeTodoArr.length; i++){
     if ( task !== undefined){
     task[i] = JSON.parse(localStorage.getItem('toDo')) || []; 
     para.value = task;
   }
 }
 
+
     //content uneditable on click away
 editButton.addEventListener('click', () => {
     para.removeAttribute('readonly');
     para.focus();
-    para.addEventListener('blur', () => {
+    para.addEventListener('blur', (e) => {
       para.setAttribute('readonly', true);
-            JSON.parse(localStorage.getItem('toDo'));
-            storeTodo.splice(task, task, para.value);
-            localStorage.setItem('toDo', JSON.stringify(storeTodo));
+      localStorage.setItem('toDo', JSON.stringify(storeTodoArr)) = e.target.value;
+      // storeTodoArr.splice(storeTodoArr[i], storeTodoArr, para.value);
     })
-})
-
+  })
+console.log(storeTodoArr[i]);
+console.log(task)
 
 //add/remove line through text when box is clicked
-checkBox.addEventListener('click',() => {
+checkBox.addEventListener('change', () => {
     if (checkBox.checked == true) {
       para.style.textDecoration = 'line-through';
+      localStorage.setItem('toDo', JSON.stringify(storeTodoArr));
     }else {
      para.style.textDecoration = 'none';
+      //  localStorage.setItem('toDo', JSON.stringify(storeTodoArr));
   }
+   
 })
+
 
 //removes list element when delete button clicked
   delButton.addEventListener('click', () =>{
