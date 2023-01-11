@@ -33,7 +33,7 @@ Display();
 });
 
  function Display(task, i) {
-  //creating elements
+  //styling and creating elements
   const newDiv = document.createElement('div');
     newDiv.classList.add('pText-container');
 
@@ -58,8 +58,6 @@ Display();
   
 
   //values that are displayed on submit click
-  // newDiv.appendChild(editButton);
-  // newDiv.appendChild(delButton);
   newDiv.appendChild(para);
   pText.appendChild(newDiv);
   pText.appendChild(checkBox);
@@ -68,7 +66,7 @@ Display();
   pText.appendChild(delButton);
 
 
-  localStorage.setItem('toDo', JSON.stringify(storeTodoArr));/////////
+  localStorage.setItem('toDo', JSON.stringify(storeTodoArr));
 
   for (let i = 0; i < storeTodoArr.length; i++){
     if ( task !== undefined){
@@ -78,14 +76,14 @@ Display();
 }
 
 
-    //content uneditable on click away
+    //edit content and save to local storage
 editButton.addEventListener('click', () => {
     para.removeAttribute('readonly');
     para.focus();
-    para.addEventListener('blur', (e) => {
+    para.addEventListener('blur', () => {
       para.setAttribute('readonly', true);
-      localStorage.setItem('toDo', JSON.stringify(storeTodoArr)) = e.target.value;
-      // storeTodoArr.splice(storeTodoArr[i], storeTodoArr, para.value);
+      storeTodoArr.splice(storeTodoArr, 1, para.value) 
+      localStorage.setItem('toDo', JSON.stringify(storeTodoArr));
     })
   })
 console.log(storeTodoArr[i]);
@@ -95,10 +93,8 @@ console.log(task)
 checkBox.addEventListener('change', () => {
     if (checkBox.checked == true) {
       para.style.textDecoration = 'line-through';
-      localStorage.setItem('toDo', JSON.stringify(storeTodoArr));
     }else {
      para.style.textDecoration = 'none';
-      //  localStorage.setItem('toDo', JSON.stringify(storeTodoArr));
   }
    
 })
@@ -111,9 +107,7 @@ checkBox.addEventListener('change', () => {
     pText.removeChild(editButton);
     pText.removeChild(checkBox);
     pText.removeChild(newDiv); 
-    // newDiv.removeChild(editButton);
-    // newDiv.removeChild(delButton);
-    localStorage.removeItem("toDo");//might need parameter of e
+    localStorage.removeItem("toDo");
     
   })
 } 
