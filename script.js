@@ -4,8 +4,11 @@
  const textContainer = document.querySelector('.pText-container');
 
  //displaying stored data on load
-let storeTodoArr = [];
-window.addEventListener('load', () => {
+ window.addEventListener('load', parseData)
+ submit.addEventListener('click', emptyTextbar)
+ 
+ let storeTodoArr = [];
+function parseData () {
   tasks = JSON.parse(localStorage.getItem('toDo')) || [];
   if ( tasks === null){
     storeTodoArr = [];
@@ -13,14 +16,16 @@ window.addEventListener('load', () => {
     storeTodoArr = tasks;
     storeTodoArr.forEach(Display);
     }
-  })
+  };
+
 
 //prevents "form" from submitting 
 submit.addEventListener('click', (e) => {
   e.preventDefault(); 
 });
 
-submit.addEventListener('click', () => { 
+
+  function emptyTextbar() {
     if (textBar.value === ""){
         alert("Put something on the list!"); 
         return;
@@ -30,9 +35,15 @@ submit.addEventListener('click', () => {
 storeTodoArr.push(textBar.value);
 localStorage.setItem('toDo', JSON.stringify(storeTodoArr));
 Display();
-});
+};
 
- function Display(task, i) {
+
+const toDo = {
+  
+}
+
+
+ function Display(task) {
   //styling and creating elements
   const newDiv = document.createElement('div');
     newDiv.classList.add('pText-container');
@@ -82,12 +93,12 @@ editButton.addEventListener('click', () => {
     para.focus();
     para.addEventListener('blur', () => {
       para.setAttribute('readonly', true);
-      storeTodoArr.splice(storeTodoArr, 1, para.value) 
+      storeTodoArr.splice( 0, task, para.value) 
       localStorage.setItem('toDo', JSON.stringify(storeTodoArr));
     })
   })
-console.log(storeTodoArr[i]);
-console.log(task)
+console.log(storeTodoArr);
+// console.log(task)
 
 //add/remove line through text when box is clicked
 checkBox.addEventListener('change', () => {
@@ -101,13 +112,16 @@ checkBox.addEventListener('change', () => {
 
 
 //removes list element when delete button clicked
-  delButton.addEventListener('click', () =>{
+  delButton.addEventListener('click', (e) => {
+    // if (e.target.classList.closest("delete")) {
+    //   const taskId = e.target.closest("input").id
+    // }
     pText.removeChild(para);
     pText.removeChild(delButton);
     pText.removeChild(editButton);
     pText.removeChild(checkBox);
     pText.removeChild(newDiv); 
-    localStorage.removeItem("toDo");
+    localStorage.removeItem(`toDo`);
     
   })
 } 
